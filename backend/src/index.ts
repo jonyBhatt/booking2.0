@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { ConnectDB } from "./utils/db";
+import { UserRouter } from "./routes/user.routes";
 
 const app = express();
 dotenv.config();
@@ -14,9 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.get("/api/test", async (req: Request, res: Response) => {
-  res.json({ message: "Hello" });
-});
+app.use("/api/user", UserRouter);
 
 // Error Handling Middleware
 
