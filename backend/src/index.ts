@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { ConnectDB } from "./utils/db";
 import { UserRouter } from "./routes/user.routes";
+import { AuthRouter } from "./routes/auth.routes";
 
 const app = express();
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/user", UserRouter);
+app.use("/api/auth", AuthRouter);
 
 // Error Handling Middleware
 
